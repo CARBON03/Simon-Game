@@ -15,6 +15,13 @@ function startOver(){
     userClickedPattern = [];
 }
 
+//for x button
+function xButtonClicked(){
+    if(gamePattern.length === 0){
+        $("#level-title").text("Level " + level);
+        nextSequence();
+  }
+}
 
 // this will take user input to start the game
 $(document).keypress(function(event){
