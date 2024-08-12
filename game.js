@@ -6,12 +6,16 @@ var userClickedPattern = [];
 
 var level = 0;
 
+
+// this is used to restart the game
 function startOver(){
     level = 0;
     gamePattern = [];
     userClickedPattern = [];
 }
 
+
+// this will take user input
 $(document).keypress(function(event){
     if(event.key === "x" && gamePattern.length === 0){
         $("#level-title").text("Level " + level);
@@ -19,11 +23,13 @@ $(document).keypress(function(event){
     }
 });
 
+//dedicated function to play sounds
 function playSound(colorName){
     var audio = new Audio("sounds/" + colorName + ".mp3");
     audio.play(); 
 };
 
+// button animation
 function animatePress(currentColor){
     $("#" + currentColor).addClass("pressed");  
 
@@ -33,6 +39,7 @@ function animatePress(currentColor){
       }, 100);
 };
 
+// this function decides the random color in the sequence
 function nextSequence(){
     level ++ ;
     $("#level-title").text("Level " + level);
@@ -56,6 +63,8 @@ $(".btn").click(function(){
     checkAnswer(userClickedPattern.length -1);
 });
 
+
+// to check the answer it compares the last input of user's list and random generated list
 function checkAnswer(currentLevel){
     if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
         console.log("Success");
