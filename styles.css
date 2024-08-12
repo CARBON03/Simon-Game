@@ -5,6 +5,8 @@
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
   height: 100vh;
+  overflow: clip;
+  user-select: none;
 }
 
 @keyframes gradient {
@@ -42,6 +44,7 @@
   border: 10px solid black;
   border-radius: 20%;
   transition: transform .2s;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -75,4 +78,21 @@
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+.start-for-moible{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: solid white 2px;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: black;
+  color: white;
+  transition: transform .2s;
+  cursor: pointer;
+}
+
+.start-for-moible:hover {
+  transform: scale(1.1);
 }
