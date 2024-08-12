@@ -1,21 +1,22 @@
 const buttonColors = ["red", "blue", "green", "yellow"];
 
-var gamePattern = [];
+var gamePattern = []; // for storing game patterns
 
-var userClickedPattern = [];
+var userClickedPattern = []; // for storing user selected patterns
 
 var level = 0;
 
 
 // this is used to restart the game
 function startOver(){
+    // setting all values to initial values
     level = 0;
     gamePattern = [];
     userClickedPattern = [];
 }
 
 
-// this will take user input
+// this will take user input to start the game
 $(document).keypress(function(event){
     if(event.key === "x" && gamePattern.length === 0){
         $("#level-title").text("Level " + level);
@@ -53,6 +54,7 @@ function nextSequence(){
     playSound(colorName);
 };
 
+// this code takes user input and stores in the list to play the game
 $(".btn").click(function(){
     const userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
@@ -66,6 +68,7 @@ $(".btn").click(function(){
 
 // to check the answer it compares the last input of user's list and random generated list
 function checkAnswer(currentLevel){
+    // this if statement insures that user can not play without clicking x key
     if(gamePattern.length !== 0){
         if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
             console.log("Success");
