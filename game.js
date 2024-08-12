@@ -80,11 +80,12 @@ function checkAnswer(currentLevel){
         }else{
             console.log("Fail");
             $("body").addClass("game-over");
-    
+            $("body").removeClass("mainbody");
             playSound("wrong");
     
             setTimeout(function () {
                 $("body").removeClass("game-over");
+                $("body").addClass("mainbody");
               }, 200);
     
               $("#level-title").text("Game Over, Press X to Restart");
