@@ -66,26 +66,30 @@ $(".btn").click(function(){
 
 // to check the answer it compares the last input of user's list and random generated list
 function checkAnswer(currentLevel){
-    if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
-        console.log("Success");
-        if(userClickedPattern.length === gamePattern.length){
-            setTimeout(function(){
-                nextSequence();
-            } , 1000);
-        }
-    }else{
-        console.log("Fail");
-        $("body").addClass("game-over");
-
-        playSound("wrong");
-
-        setTimeout(function () {
-            $("body").removeClass("game-over");
-          }, 200);
-
-          $("#level-title").text("Game Over, Press X to Restart");
-
-          startOver()
+    if(gamePattern.length !== 0){
+        if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
+            console.log("Success");
+            if(userClickedPattern.length === gamePattern.length){
+                setTimeout(function(){
+                    nextSequence();
+                } , 1000);
+            }
+        }else{
+            console.log("Fail");
+            $("body").addClass("game-over");
+    
+            playSound("wrong");
+    
+            setTimeout(function () {
+                $("body").removeClass("game-over");
+              }, 200);
+    
+              $("#level-title").text("Game Over, Press X to Restart");
+    
+              startOver()
+        };
+    }else {
+        $("#level-title").text("Game Not Started yet, Press X to Start!");
     };
 };
 
